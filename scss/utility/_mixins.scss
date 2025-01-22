@@ -1,0 +1,8 @@
+// This'll convert any px value to rem
+$font-base: 16;
+
+@mixin rem($property, $value) {
+    #{$property}: #{calc(($value / $font-base))}rem;
+}
+// @include rem(font-size, 45);
+// @include rem(max-width, 45);

@@ -1,0 +1,61 @@
+$zIndexes: 1,2,3;
+@each $value in $zIndexes {
+    .z-index-#{$value} {
+        z-index: $value;
+    }
+}
+
+$radii: 10, 15, 25;
+@each $value in $radii {
+    .border-radius-#{$value} {
+        border-radius: #{$value}px;
+    }
+}
+
+$padding_sizes: (
+    16, 32, 48, 64
+);
+$desktop_multiplier: 2;
+
+@each $value in $sizes {
+    .p-#{$value} {
+        padding-top: #{$value}px;
+        padding-bottom: #{$value}px;
+        @media (min-width: $desktop) {
+            padding-top: #{$value * $desktop_multiplier}px;
+            padding-bottom: #{$value * $desktop_multiplier}px;
+        }
+    }
+    .pt-#{$value} {
+        padding-top: #{$value}px;
+        @media (min-width: $desktop) {
+            padding-top: #{$value * $desktop_multiplier}px;
+        }
+    }
+    .pb-#{$value} {
+        padding-bottom: #{$value}px;
+        @media (min-width: $desktop) {
+            padding-bottom: #{$value * $desktop_multiplier}px;
+        }
+    }
+    .m-#{$value} {
+        margin-top: #{$value}px;
+        margin-bottom: #{$value}px;
+        @media (min-width: $desktop) {
+            margin-top: #{$value * $desktop_multiplier}px;
+            margin-bottom: #{$value * $desktop_multiplier}px;
+        }
+    }
+    .mt-#{$value} {
+        margin-top: #{$value}px;
+        @media (min-width: $desktop) {
+            margin-top: #{$value * $desktop_multiplier}px;
+        }
+    }
+    .mb-#{$value} {
+        margin-bottom: #{$value}px;
+        @media (min-width: $desktop) {
+            margin-bottom: #{$value * $desktop_multiplier}px;
+        }
+    }
+}

@@ -1,0 +1,79 @@
+
+
+$columns : (
+    1,2,3,4
+);
+
+.grid {
+    display: grid;
+    gap: 24px;
+}
+
+.flex {
+    display: flex;
+}
+
+@each $cols in $columns {
+
+    // GRID CLASSES
+    .grid-cols-#{$cols} {
+        grid-template-columns: repeat($cols, minmax(0, 1fr));
+    }
+
+    // responsive variants below
+    // creates classes like mobile:grid-cols-3
+    .mobile\:grid-cols-#{$cols} {
+        @media(min-width: $mobile) {
+            grid-template-columns: repeat($cols, minmax(0, 1fr));
+        }
+    }
+
+    .tablet\:grid-cols-#{$cols} {
+        @media(min-width: $tablet) {
+            grid-template-columns: repeat($cols, minmax(0, 1fr));
+        }
+    }
+
+    .desktop\:grid-cols-#{$cols} {
+        @media(min-width: $desktop) {
+            grid-template-columns: repeat($cols, minmax(0, 1fr));
+        }
+    }
+
+    .desktop-lg\:grid-cols-#{$cols} {
+        @media(min-width: $desktop-lg) {
+            grid-template-columns: repeat($cols, minmax(0, 1fr));
+        }
+    }
+
+    // FLEX CLASSES
+    // responsive variants below
+    // creates classes like mobile: flex-cols-3
+    .mobile\:flex-cols-#{$cols} {
+        display: flex;
+        @media(min-width: $mobile) {
+            > .flex-child { width: #{calc(100/$cols) + '%'}; }
+        }
+    }
+
+    .tablet\:flex-cols-#{$cols} {
+        @media(min-width: $tablet) {
+            display: flex;
+            > .flex-child { width: #{calc(100/$cols) + '%'}; }
+        }
+    }
+
+    .desktop\:flex-cols-#{$cols} {
+        @media(min-width: $desktop) {
+            display: flex;
+            > .flex-child { width: #{calc(100/$cols) + '%'}; }
+        }
+    }
+
+    .desktop-lg\:flex-cols-#{$cols} {
+        @media(min-width: $desktop-lg) {
+            display: flex;
+            > .flex-child { width: #{calc(100/$cols) + '%'}; }    
+        }
+    }
+}

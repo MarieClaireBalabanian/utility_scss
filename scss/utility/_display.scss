@@ -1,0 +1,37 @@
+
+$display-list: (
+    'hidden': 'none',
+    'block': 'block',
+    'flex': 'flex'
+);
+
+@each $displayName, $value in $display-list {
+
+    .#{$displayName} {
+        display: $value;
+    }
+
+    .mobile\:#{$displayName} {
+        @media(min-width: $mobile) {
+            display: $value;
+        }
+    }
+
+    .tablet\:#{$displayName} {
+        @media(min-width: $tablet) {
+            display: $value;
+        }
+    }
+
+    .desktop\:#{$displayName} {
+        @media(min-width: $desktop) {
+            display: $value;
+        }
+    }
+
+    .desktop-lg\:#{$displayName} {
+        @media(min-width: $desktop-lg) {
+            display: $value;
+        }
+    }
+}

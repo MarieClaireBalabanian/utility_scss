@@ -1,0 +1,25 @@
+$green: #2B5F51;
+$teal: #0BBAB4;
+$pinkdark: #993366;
+$black: black;
+$white: white;
+
+
+
+$colors-list: (
+    'pinkdark' : $pinkdark,
+    'green': $green,
+    'teal': $teal,
+    'black': $black,
+    'white': $white
+);
+
+@each $key, $val in $colors-list {
+    .text-#{$key} {
+        color: $val;
+    }
+
+    .bg-#{$key} {
+        background-color: $val;
+    }
+}
